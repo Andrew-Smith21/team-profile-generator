@@ -1,6 +1,6 @@
-const writeFile = require('./src/generateFile');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
+const writeFile = require('./src/generateFile');
 
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
@@ -98,10 +98,8 @@ const displayMenu = () => {
             getInternInfo();
         }
         else if (menu.menuSelection === 'Team is Complete') {
-            generatePage(manager, engineers, interns)
-            .then(pageHTML => {
-                writeFile(pageHTML);
-            })
+            pageHTML = generatePage(manager, engineers, interns);
+            writeFile(pageHTML);
         }
     })
 };
