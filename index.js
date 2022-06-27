@@ -1,4 +1,4 @@
-const { writeFile } = require('fs');
+const writeFile = require('./src/generateFile');
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
 
@@ -98,7 +98,10 @@ const displayMenu = () => {
             getInternInfo();
         }
         else if (menu.menuSelection === 'Team is Complete') {
-            generatePage(manager, engineers, interns);
+            generatePage(manager, engineers, interns)
+            .then(pageHTML => {
+                writeFile(pageHTML);
+            })
         }
     })
 };
