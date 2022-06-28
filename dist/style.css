@@ -1,0 +1,25 @@
+.header {
+    text-align: center;
+    color: white;
+}
+
+.card {
+    margin: 20px;
+    padding: 0;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-title {
+    margin-bottom: 0;
+    color: white;
+    padding: 8px;
+}
+
+.card-subtitle {
+    color: white;
+    padding: 8px;
+}

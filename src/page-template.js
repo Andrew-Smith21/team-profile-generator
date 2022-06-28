@@ -11,14 +11,15 @@ const generateEngineers = engineers => {
     for (let i = 0; i < engineers.length; i++) {
 
         return `
-        <article class="card">
+        <article class="card col-3">
             <div class="card-body">
-                <h2 class="card-title .bg-primary">${engineers[0].name}</h2>
-                <h3 class="card-subtitle .bg-primary">Engineer</h3
+                <h2 class="card-title bg-primary">${engineers[i].name}</h2>
+                <h3 class="card-subtitle bg-primary">Engineer</h3>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${engineers[0].id}</li>
-                    <li class="list-group-item">Email: ${engineers[0].email}</li>
-                    <li class="list-group-item">Github: ${engineers[0].github}</li>
+                    <li class="list-group-item">ID: ${engineers[i].id}</li>
+                    <li class="list-group-item">Email: <a href = "mailto: ${engineers[i].email}">${engineers[i].email}</a>
+                    </li>
+                    <li class="list-group-item">Github: <a href="github.com/${engineers[i].github}">${engineers[i].github}</a> </li>
                 </ul>
 
             </div>
@@ -36,14 +37,15 @@ const generateInterns = interns => {
     for (let i = 0; i < interns.length; i++) {
 
         return `
-        <article class="card">
+        <article class="card col-3">
             <div class="card-body">
-                <h2 class="card-title .bg-primary">${interns[0].name}</h2>
-                <h3 class="card-subtitle .bg-primary">Intern</h3
+                <h2 class="card-title bg-primary">${interns[i].name}</h2>
+                <h3 class="card-subtitle bg-primary">Intern</h3>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">ID: ${interns[0].id}</li>
-                    <li class="list-group-item">Email: ${interns[0].email}</li>
-                    <li class="list-group-item">School: ${interns[0].school}</li>
+                    <li class="list-group-item">ID: ${interns[i].id}</li>
+                    <li class="list-group-item">Email: <a href = "mailto: ${interns[i].email}">${interns[i].email}</a>
+                    </li>
+                    <li class="list-group-item">School: ${interns[i].school}</li>
                 </ul>
 
             </div>
@@ -74,29 +76,33 @@ module.exports = (manager, engineers, interns) => {
 
     <body>
         <header>
-        <div class=".bg-danger header container flex-row justify-space-between align-center py-3">
-            <h1 class="page-title text-secondary bg-dark py-2 px-3">My Team</h1>
+        <div class="bg-danger header container flex-row justify-space-between align-center py-3">
+            <h1 class="bg-danger page-title py-2 px-3">My Team</h1>
         </div>
         </header>
 
         <main class="container my-5">
-
-            <article class="card">
+            <div class="row">
+            <article class="card col-3">
                 <div class="card-body">
-                    <h2 class="card-title .bg-primary">${manager[0].name}</h2>
-                    <h3 class="card-subtitle .bg-primary">Manager</h3>
+                    <h2 class="card-title bg-primary">${manager[0].name}</h2>
+                    <h3 class="card-subtitle bg-primary">Manager</h3>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${manager[0].id}</li>
-                        <li class="list-group-item">Email: ${manager[0].email}</li>
+                        <li class="list-group-item">Email: <a href = "mailto: ${manager[0].email}">${manager[0].email}</a>
+                        </li>
                         <li class="list-group-item">Office number: ${manager[0].officeNumber}</li>
                     </ul>
 
                 </div>
             </article>
+            
 
             ${generateEngineers(engineers)}
 
             ${generateInterns(interns)}
+
+            </div>
         
 
         </main>
